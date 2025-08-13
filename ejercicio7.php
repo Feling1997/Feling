@@ -61,8 +61,8 @@ foreach ($estudiantes as $index=> $estudiante) {
         <h3>Mejor Estudiante</h3>
         <p>El mejor estudiante es: <strong><?php echo $mejorEstudiante; ?></strong> con un promedio de <strong><?php echo number_format($mejorPromedio, 2); ?></strong>.</p>
     </div>
-    
-     <p>
+
+     <pclass="btn-container">
         <a href="nuevo_estudiante.php" class="btn-agregar">Agregar Nuevo Estudiante</a>
     </p>
 
