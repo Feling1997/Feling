@@ -83,3 +83,8 @@ tr:hover {
 .btn-agregar:hover {
     background-color: #2980b9;
 }
+.centrar-boton {
+    width: 100%;         /* Ocupa todo el ancho */
+    text-align: center;  /* Centra contenido inline (el enlace) */
+    margin-bottom: 20px; /* Espacio debajo del botón */
+}
