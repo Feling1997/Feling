@@ -88,3 +88,11 @@ tr:hover {
     text-align: center;  /* Centra contenido inline (el enlace) */
     margin-bottom: 20px; /* Espacio debajo del botón */
 }
+.titulo-centrado {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #2c3e50;
+}

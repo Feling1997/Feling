@@ -26,7 +26,7 @@ foreach ($estudiantes as $index=> $estudiante) {
 </head>
 <body>
 
-    <h2>Lista de Estudiantes</h2>
+    <h2 class="titulo-centrado">Lista de Estudiantes</h2>
     
     <table>
         <tr>
@@ -41,7 +41,7 @@ foreach ($estudiantes as $index=> $estudiante) {
             <?php
                 // Determinar clase para la fila
                 $claseFila = '';
-                if ($index === $mejorIndex) {
+                if ($index == $mejorIndex) {
                     $claseFila = 'mejor';
                 } elseif ($estudiante['promedio'] < 6) {
                     $claseFila = 'reprobado';
@@ -62,7 +62,7 @@ foreach ($estudiantes as $index=> $estudiante) {
         <p>El mejor estudiante es: <strong><?php echo $mejorEstudiante; ?></strong> con un promedio de <strong><?php echo number_format($mejorPromedio, 2); ?></strong>.</p>
     </div>
 
-    <pclass="btn-container">
+    <p class="btn-container">
     <p class="centrar-boton">
     <a href="nuevo_estudiante.php" class="btn-agregar">Agregar Nuevo Estudiante</a>
     </p>
