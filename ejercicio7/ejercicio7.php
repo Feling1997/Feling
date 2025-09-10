@@ -22,7 +22,7 @@ $sql = "
     JOIN carreras c ON a.carrera_id = c.id
     LEFT JOIN notas n ON a.id = n.alumno_id
     LEFT JOIN materias m ON n.materia_id = m.id
-    ORDER BY m.nombre, c.nombre;
+    ORDER BY m.nombre;
 ";
 
 
