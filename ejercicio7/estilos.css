@@ -1,78 +1,79 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box; /* Hace que padding y border no sumen al ancho/alto total */
+    margin: 0;              /* Elimina márgenes por defecto */
+    padding: 0;             /* Elimina padding por defecto */
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
-    padding: 40px;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente principal */
+    background-color: #f0f2f5;  /* Color de fondo general */
+    padding: 40px;              /* Espacio interno del body */
+    color: #333;                /* Color de texto general */
 }
 
 h2, h3 {
-    margin-bottom: 20px;
-    color: #2c3e50;
+    margin-bottom: 20px;     /* Espacio debajo de títulos */
+    color: #2c3e50;          /* Color oscuro elegante */
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    width: 100%;              /* Tabla ocupa todo el ancho disponible */
+    border-collapse: collapse; /* Bordes colapsados (sin doble línea) */
+    margin-bottom: 30px;      /* Espacio debajo de la tabla */
+    background-color: #fff;   /* Fondo blanco de la tabla */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
+    border-radius: 8px;       /* Bordes redondeados */
+    overflow: hidden;         /* Oculta desbordes */
 }
 
 th, td {
-    padding: 16px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
+    padding: 16px;             /* Espacio interno celdas */
+    text-align: center;        /* Centrado de texto */
+    border-bottom: 1px solid #eee; /* Línea entre filas */
 }
 
 th {
-    background-color: #34495e;
-    color: #ecf0f1;
-    font-weight: 600;
-    text-transform: uppercase;
+    background-color: #34495e; /* Fondo oscuro para headers */
+    color: #ecf0f1;             /* Texto blanco/gris */
+    font-weight: 600;           /* Negrita */
+    text-transform: uppercase;  /* Mayúsculas */
 }
 
 tr:hover {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Cambia color al pasar el mouse */
 }
 
 .mejor {
-    background-color: #d1f0d1 !important;
+    background-color: #d1f0d1 !important; /* Fondo verde claro para mejor alumno */
     font-weight: bold;
 }
 
 .reprobado {
-    color: #e74c3c;
+    color: #e74c3c;       /* Rojo para alumnos reprobados */
     font-weight: bold;
 }
 
 .footer {
     padding: 20px;
     background-color: #ffffff;
-    border-left: 5px solid #2ecc71;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-left: 5px solid #2ecc71; /* Línea verde a la izquierda */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* Sombra suave */
     border-radius: 5px;
 }
 
 .footer strong {
-    color: #2c3e50;
+    color: #2c3e50; /* Color de énfasis */
 }
+
 .contenedor-boton {
-    text-align: center;  /* Esto centra el contenido inline dentro del contenedor */
-    margin-bottom: 20px; /* Espacio abajo del botón */
+    text-align: center;  /* Centra contenido inline como botones */
+    margin-bottom: 20px; /* Espacio debajo */
 }
 
 .btn-agregar {
     display: inline-block;
-    padding: 10px 25px;
-    background-color: #3498db;
+    padding: 10px 25px;       /* Espacio interno */
+    background-color: #3498db; /* Azul */
     color: white;
     font-weight: bold;
     text-decoration: none;
@@ -81,13 +82,29 @@ tr:hover {
 }
 
 .btn-agregar:hover {
-    background-color: #2980b9;
+    background-color: #2980b9; /* Azul más oscuro al pasar el mouse */
 }
+.btn-agregarCarrera {
+    display: inline-block;
+    padding: 10px 25px;       /* Espacio interno */
+    background-color: #3498db; /* Azul */
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-agregarCarrera:hover {
+    background-color: #2980b9; /* Azul más oscuro al pasar el mouse */
+}
+
 .centrar-boton {
-    width: 100%;         /* Ocupa todo el ancho */
-    text-align: center;  /* Centra contenido inline (el enlace) */
-    margin-bottom: 20px; /* Espacio debajo del botón */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
 }
+
 .titulo-centrado {
     text-align: center;
     margin-top: 30px;
@@ -96,10 +113,11 @@ tr:hover {
     font-weight: bold;
     color: #2c3e50;
 }
+
 .btn-modificar {
     display: inline-block;
-    padding: 10px 25px;
-    background-color: #f1c40f; /* amarillo */
+    padding: 10px 25px;           /* Espaciado interno grande */
+    background-color: #f1c40f;    /* Amarillo */
     color: black;
     font-weight: bold;
     text-decoration: none;
@@ -108,13 +126,13 @@ tr:hover {
 }
 
 .btn-modificar:hover {
-    background-color: #d4ac0d; /* amarillo oscuro */
+    background-color: #d4ac0d; /* Amarillo oscuro */
 }
 
 .btn-eliminar {
     display: inline-block;
-    padding: 10px 25px;
-    background-color: #e74c3c; /* rojo */
+    padding: 10px 25px;           /* Espaciado interno grande */
+    background-color: #e74c3c;    /* Rojo */
     color: white;
     font-weight: bold;
     text-decoration: none;
@@ -123,26 +141,53 @@ tr:hover {
 }
 
 .btn-eliminar:hover {
-    background-color: #c0392b; /* rojo oscuro */
+    background-color: #c0392b; /* Rojo oscuro */
 }
+
 .contenedor-botones {
-    display: flex;
-    gap: 10px;              /* Espacio entre botones */
-    justify-content: center; /* Centra los botones horizontalmente */
-    margin: 20px 0;          /* Espacio arriba y abajo */
+    display: flex;              /* Flexbox para alinear botones */
+    gap: 10px;                  /* Espacio entre ellos */
+    justify-content: center;   /* Centrado horizontal */
+    margin: 20px 0;
 }
-.btn-agregar,
-.btn-modificar,
-.btn-eliminar {
+
+/* ❗ Aquí estás sobrescribiendo los estilos anteriores de los botones y los estás agrandando */
+
+.btn-agregar,.btn-agregarCarrera
+{
     display: inline-block;
-    padding: 30px 70px;       /* Más grandes */
-    font-size: 18px;          /* Fuente más grande */
+    padding: 30px 70px;     /* 🔴 Muy grande: espacio interno enorme */
+    font-size: 18px;         /* 🔴 Texto grande */
     font-weight: bold;
     border-radius: 5px;
     text-decoration: none;
     text-align: center;
     transition: background-color 0.3s ease;
-    min-width: 150px;         /* Ancho mínimo */
+    min-width: 150px;        /* Ancho mínimo grande */
     cursor: pointer;
 }
+.btn-modificar,
+.btn-eliminar {
+    display: inline-block;
+    padding: 8px 16px;        /* Espacio interno más chico */
+    font-size: 14px;          /* Tamaño de fuente más chico */
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    min-width: 80px;          /* Ancho mínimo más chico */
+    cursor: pointer;
+}
+.btn-nota {
+    background-color: #5bc0de;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 5px;
+}
 
+.btn-nota:hover {
+    background-color: #31b0d5;
+}

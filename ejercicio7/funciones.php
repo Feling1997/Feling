@@ -1,10 +1,17 @@
 <?php
 
 function calcularPromedio($notas) {
-    $suma = array_sum($notas);
-    $promedio = $suma / count($notas);
+    $promedio = 0;
+
+    $cantidad = count($notas);
+    if ($cantidad > 0) {
+        $suma = array_sum($notas);
+        $promedio = $suma / $cantidad;
+    }
+
     return $promedio;
 }
+
 function agregarEstudiante($conn, $nombre, $edad, $carrera_id, $notas) {
     $resultado = true;
 
@@ -20,13 +27,16 @@ function agregarEstudiante($conn, $nombre, $edad, $carrera_id, $notas) {
 
             $stmt = $conn->prepare("INSERT INTO notas (alumno_id, materia_id, nota) VALUES (?, ?, ?)");
             if ($stmt) {
-                foreach ($notas as $materia_id => $nota) {
-                    $stmt->bind_param("iid", $alumno_id, $materia_id, $nota);
-                    if (!$stmt->execute()) {
-                        $resultado = "Error al insertar nota: " . $stmt->error;
-                        break; // salir del foreach si hay error
-                    }
-                }
+                foreach ($notas as $materia_id => $listaNotas) {
+                    foreach ($listaNotas as $nota) {
+                        $stmt->bind_param("iid", $alumno_id, $materia_id, $nota);
+                        if (!$stmt->execute()) {
+                            $resultado = "Error al insertar nota: " . $stmt->error;
+                            break 2; // salir de ambos foreach
+        }
+    }
+}
+
                 $stmt->close();
             } else {
                 $resultado = "Error en la preparación de consulta para notas: " . $conn->error;
