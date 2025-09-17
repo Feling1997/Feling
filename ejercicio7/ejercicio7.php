@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+// Si no hay sesión iniciada, redirigir al login
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+}
 
 // Importa archivos necesarios
 require 'ejercicio7alumnos.php'; // Opcional, si tiene funciones o configuraciones globales
@@ -138,7 +144,7 @@ foreach ($estudiantes as $id => $estudiante) {
                         echo "<strong>" . htmlspecialchars($materia) . ":</strong> " . implode(", ", $notas) . "<br>";
                         }
                     } else {
-                        echo "-";  // O lo que quieras mostrar cuando no haya notas
+                        echo "Sin notas";  // O lo que quieras mostrar cuando no haya notas
                     }
                 ?>
                 </td>
@@ -146,7 +152,7 @@ foreach ($estudiantes as $id => $estudiante) {
                 <td>
                     <a href="agregarNota.php?id=<?php echo $alumno_id; ?>" class="btn-nota">Agregar nota</a>
                     <a href="modificar.php?id=<?php echo $alumno_id; ?>" class="btn-modificar">Modificar</a>
-                    <a href="eliminar.php?id=<?php echo $alumno_id; ?>" class="btn-eliminar" onclick="return confirm('¿Estás seguro que deseas eliminar este estudiante?');">Eliminar</a>
+                    <a href="confirmar_eliminacio.php?id=<?php echo $alumno_id; ?>" class="btn-eliminar" onclick="return confirm('¿Estás seguro que deseas eliminar?');">Eliminar</a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -155,8 +161,7 @@ foreach ($estudiantes as $id => $estudiante) {
     <div class="footer">
         <h3>Mejor Estudiante</h3>
         <p>
-            El mejor estudiante es: <strong><?php echo $mejorEstudiante; ?></strong> 
-            con un promedio de <strong><?php echo number_format($mejorPromedio, 2); ?></strong>.
+            El mejor estudiante es: <strong><?php echo $mejorEstudiante; ?></strong> con un promedio de <strong><?php echo number_format($mejorPromedio, 2); ?></strong>.
         </p>
     </div>
 
@@ -164,6 +169,9 @@ foreach ($estudiantes as $id => $estudiante) {
         <a href="nuevo_estudiante.php" class="btn-agregar">Agregar estudiante</a>
         <a href="agregarMateria.php" class="btn-agregar">Agregar materia</a>
         <a href="agregarCarrera.php" class="btn-agregar">Agregar carrera</a>
+        <a href="lista_carreras.php" class="btn-lista">Lista de carreras</a>
+        <a href="lista_materias.php" class="btn-lista">Lista de materias</a>
+        <a href="login_salida.php" class="btn-eliminar_grande">Cerrar sesión</a>
     </div>
 
 </body>

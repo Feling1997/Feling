@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+// Si no hay sesión iniciada, redirigir al login
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+}
 // Importamos la conexión a la base de datos
 require 'conexion.php';
 

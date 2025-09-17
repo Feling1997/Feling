@@ -1,193 +1,297 @@
+/* Reseteo general para caja, margenes y padding */
 * {
-    box-sizing: border-box; /* Hace que padding y border no sumen al ancho/alto total */
-    margin: 0;              /* Elimina márgenes por defecto */
+    box-sizing: border-box; /* Padding y borde no suman al ancho/alto total */
+    margin: 0;              /* Elimina margenes por defecto */
     padding: 0;             /* Elimina padding por defecto */
 }
 
+/* Estilos generales para el body */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente principal */
-    background-color: #f0f2f5;  /* Color de fondo general */
-    padding: 40px;              /* Espacio interno del body */
-    color: #333;                /* Color de texto general */
+    background-image: url('Imagenes/fondo_principal.png'); /* Ruta relativa al archivo PHP */
+    background-size: cover;        /* Cubre toda la pantalla */
+    background-position: center;   /* Centrado */
+    background-repeat: no-repeat;  /* Sin repeticiones */
+    min-height: 100vh;             /* Al menos altura completa de pantalla */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
 }
 
+
+/* Estilos para títulos */
 h2, h3 {
-    margin-bottom: 20px;     /* Espacio debajo de títulos */
-    color: #2c3e50;          /* Color oscuro elegante */
+    margin-bottom: 20px;        /* Espacio debajo del título */
+    color: #2c3e50;             /* Color azul oscuro */
 }
 
+/* Estilos para tablas */
 table {
-    width: 100%;              /* Tabla ocupa todo el ancho disponible */
-    border-collapse: collapse; /* Bordes colapsados (sin doble línea) */
-    margin-bottom: 30px;      /* Espacio debajo de la tabla */
-    background-color: #fff;   /* Fondo blanco de la tabla */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra suave */
-    border-radius: 8px;       /* Bordes redondeados */
-    overflow: hidden;         /* Oculta desbordes */
+    width: 100%;                /* Ocupa todo el ancho */
+    border-collapse: collapse;  /* Quita doble borde */
+    margin-bottom: 30px;        /* Espacio inferior */
+    background-color: #fff;     /* Fondo blanco */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+    border-radius: 8px;         /* Bordes redondeados */
+    overflow: hidden;           /* Oculta desbordes */
 }
 
+/* Estilos para celdas */
 th, td {
-    padding: 16px;             /* Espacio interno celdas */
-    text-align: center;        /* Centrado de texto */
-    border-bottom: 1px solid #eee; /* Línea entre filas */
+    padding: 16px;              /* Espacio interno */
+    text-align: center;         /* Texto centrado */
+    border-bottom: 1px solid #eee; /* Línea divisoria */
 }
 
+/* Estilos especiales para encabezados */
 th {
-    background-color: #34495e; /* Fondo oscuro para headers */
-    color: #ecf0f1;             /* Texto blanco/gris */
+    background-color: #34495e;  /* Fondo azul oscuro */
+    color: #ecf0f1;             /* Texto claro */
     font-weight: 600;           /* Negrita */
     text-transform: uppercase;  /* Mayúsculas */
 }
 
+/* Hover para filas */
 tr:hover {
-    background-color: #f9f9f9; /* Cambia color al pasar el mouse */
+    background-color: #d5dcf1;  /* Fondo claro al pasar mouse */
 }
 
+/* Fila del mejor estudiante */
 .mejor {
-    background-color: #d1f0d1 !important; /* Fondo verde claro para mejor alumno */
+    background-color: #d1f0d1 !important; /* Verde claro */
     font-weight: bold;
 }
 
+/* Fila para estudiantes reprobados */
 .reprobado {
-    color: #e74c3c;       /* Rojo para alumnos reprobados */
+    color: #e74c3c;             /* Rojo */
     font-weight: bold;
 }
 
+/* Pie de página con destacado */
 .footer {
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #dae9ce;
     border-left: 5px solid #2ecc71; /* Línea verde a la izquierda */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* Sombra suave */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* Sombra sutil */
     border-radius: 5px;
 }
 
+/* Texto fuerte dentro del footer */
 .footer strong {
-    color: #2c3e50; /* Color de énfasis */
+    color: #2c3e50;             /* Color azul oscuro */
 }
 
-.contenedor-boton {
-    text-align: center;  /* Centra contenido inline como botones */
-    margin-bottom: 20px; /* Espacio debajo */
+/* Contenedor para centrar botones */
+.contenedor-botones {
+    display: flex;              /* Flexbox para alinear horizontal */
+    gap: 10px;                  /* Espacio entre botones */
+    justify-content: center;    /* Centra horizontalmente */
+    margin: 20px 0;             /* Margen arriba y abajo */
 }
 
-.btn-agregar {
+/* Botones grandes (Agregar estudiante, carrera, materia, listas) */
+/* Botones grandes (Agregar estudiante, carrera, materia, listas) */
+.btn-agregar, .btn-agregarCarrera {
     display: inline-block;
-    padding: 10px 25px;       /* Espacio interno */
-    background-color: #3498db; /* Azul */
-    color: white;
+    padding: 30px 70px;         /* Mucho espacio interno para botón grande */
+    font-size: 18px;            /* Texto grande */
     font-weight: bold;
+    border-radius: 5px;         /* Bordes redondeados */
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-agregar:hover {
-    background-color: #2980b9; /* Azul más oscuro al pasar el mouse */
-}
-.btn-agregarCarrera {
-    display: inline-block;
-    padding: 10px 25px;       /* Espacio interno */
-    background-color: #3498db; /* Azul */
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-agregarCarrera:hover {
-    background-color: #2980b9; /* Azul más oscuro al pasar el mouse */
-}
-
-.centrar-boton {
-    width: 100%;
     text-align: center;
-    margin-bottom: 20px;
+    transition: background-color 0.3s ease; /* Transición suave */
+    min-width: 150px;           /* Ancho mínimo */
+    cursor: pointer;            /* Cursor tipo mano */
+    background-color: #3498db;  /* Fondo azul normal */
+    color: white;               /* Texto blanco */
 }
 
+
+/* Botón lista en verde */
+.btn-lista {
+    display: inline-block;
+    padding: 30px 70px;         /* Mucho espacio interno para botón grande */
+    font-size: 18px;            /* Texto grande */
+    font-weight: bold;
+    border-radius: 5px;         /* Bordes redondeados */
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease; /* Transición suave */
+    min-width: 150px;           /* Ancho mínimo */
+    cursor: pointer;            /* Cursor tipo mano */
+    background-color: #27ae60;  /* Verde normal */
+    color: white;               /* Texto blanco */
+}
+/* Hover para botones grandes */
+.btn-agregar:hover, .btn-agregarCarrera:hover, .btn-lista:hover {
+    background-color: #000000;  /* Fondo negro al pasar el mouse */
+}
+
+/* Botón para modificar */
+.btn-modificar {
+    display: inline-block;
+    padding: 8px 16px;          /* Espacio interno mediano */
+    font-size: 14px;            /* Texto un poco más pequeño */
+    background-color: #f1c40f;  /* Amarillo */
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    min-width: 80px;
+    cursor: pointer;
+}
+
+/* Hover para modificar */
+.btn-modificar:hover {
+    background-color: #000000;  /* Amarillo oscuro */
+}
+
+/* Botón para eliminar */
+.btn-eliminar {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #e74c3c;  /* Rojo */
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    min-width: 80px;
+    cursor: pointer;
+}
+
+/* Hover para eliminar */
+.btn-eliminar:hover {
+    background-color: #000000;  /* Rojo oscuro */
+}
+/*boton eliminar grande*/
+.btn-eliminar_grande {
+    display: inline-block;
+    padding: 30px 70px;         /* Mucho espacio interno para botón grande */
+    font-size: 18px;            /* Texto grande */
+    font-weight: bold;
+    border-radius: 5px;         /* Bordes redondeados */
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease; /* Transición suave */
+    min-width: 150px;           /* Ancho mínimo */
+    cursor: pointer;            /* Cursor tipo mano */
+    background-color: #ff0202;  /* Verde normal */
+    color: white;               /* Texto blanco */
+}
+/* Hover para eliminar grande */
+.btn-eliminar_grande:hover {
+    background-color: #000000;  /* Rojo oscuro */
+}
+/* Botón para agregar nota */
+.btn-nota {
+    background-color: #5bc0de;  /* Azul claro */
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/* Hover para botón agregar nota */
+.btn-nota:hover {
+    background-color: #000000;  /* Azul más intenso */
+}
+
+/* Título centrado grande */
 .titulo-centrado {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 30px;
     font-size: 2em;
     font-weight: bold;
+    color: #f7f7f7;
+}
+/* Contenedor principal que centra el login en toda la pantalla */
+/* Fondo con capa oscura encima */
+.contenedor-login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url('Imagenes/fondo.png');/*ruta de imagen*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Capa oscura encima del fondo */
+.contenedor-login::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen */
+    z-index: 0;
+}
+
+/* Formulario encima de la capa */
+.formulario-login {
+    position: relative;
+    z-index: 1;
+    background-color: #ffffffee; /* Fondo blanco con transparencia */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Estilo del formulario */
+.formulario-login {
+    background-color: #ffffff;             /* Fondo blanco */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Sombra profunda */
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Título del formulario */
+.titulo-login {
+    text-align: center;
+    margin-bottom: 25px;
     color: #2c3e50;
+    font-size: 24px;
 }
 
-.btn-modificar {
-    display: inline-block;
-    padding: 10px 25px;           /* Espaciado interno grande */
-    background-color: #f1c40f;    /* Amarillo */
-    color: black;
+/* Campos del formulario */
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 8px;
     font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    color: #34495e;
 }
 
-.btn-modificar:hover {
-    background-color: #d4ac0d; /* Amarillo oscuro */
+.campo-formulario input[type="text"],
+.campo-formulario input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-.btn-eliminar {
-    display: inline-block;
-    padding: 10px 25px;           /* Espaciado interno grande */
-    background-color: #e74c3c;    /* Rojo */
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.campo-formulario input:focus {
+    border-color: #3498db;
 }
 
-.btn-eliminar:hover {
-    background-color: #c0392b; /* Rojo oscuro */
-}
-
-.contenedor-botones {
-    display: flex;              /* Flexbox para alinear botones */
-    gap: 10px;                  /* Espacio entre ellos */
-    justify-content: center;   /* Centrado horizontal */
-    margin: 20px 0;
-}
-
-/* ❗ Aquí estás sobrescribiendo los estilos anteriores de los botones y los estás agrandando */
-
-.btn-agregar,.btn-agregarCarrera
-{
-    display: inline-block;
-    padding: 30px 70px;     /* 🔴 Muy grande: espacio interno enorme */
-    font-size: 18px;         /* 🔴 Texto grande */
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.3s ease;
-    min-width: 150px;        /* Ancho mínimo grande */
-    cursor: pointer;
-}
-.btn-modificar,
-.btn-eliminar {
-    display: inline-block;
-    padding: 8px 16px;        /* Espacio interno más chico */
-    font-size: 14px;          /* Tamaño de fuente más chico */
-    font-weight: bold;
-    border-radius: 5px;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.3s ease;
-    min-width: 80px;          /* Ancho mínimo más chico */
-    cursor: pointer;
-}
-.btn-nota {
-    background-color: #5bc0de;
-    color: white;
-    padding: 6px 12px;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-right: 5px;
-}
-
-.btn-nota:hover {
-    background-color: #31b0d5;
-}
+/* Botón de ingresar (usa clase existente ya estilizada) */
