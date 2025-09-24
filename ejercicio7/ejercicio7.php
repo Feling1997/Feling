@@ -14,7 +14,6 @@ require 'funciones.php';         // Funciones auxiliares, como calcularPromedio(
 // Array donde se guardarán todos los estudiantes y sus datos
 $estudiantes = [];
 
-// Consulta SQL: une alumnos, carreras, materias y notas
 $sql = "
     SELECT 
         a.id AS alumno_id,
@@ -28,8 +27,15 @@ $sql = "
     JOIN carreras c ON a.carrera_id = c.id
     LEFT JOIN notas n ON a.id = n.alumno_id
     LEFT JOIN materias m ON n.materia_id = m.id
-    ORDER BY m.nombre;
 ";
+
+// Si es alumno, filtra solo su ID
+if ($_SESSION['rol'] === 'alumno') {
+    $sql .= " WHERE a.id = " . intval($_SESSION['usuario_id']);
+}
+
+$sql .= " ORDER BY m.nombre;";
+
 
 
 // Ejecutamos la consulta
@@ -108,7 +114,10 @@ foreach ($estudiantes as $id => $estudiante) {
 </head>
 <body>
 
-    <h2 class="titulo-centrado">Lista de Estudiantes</h2>
+    <<h2 class="titulo-centrado">
+        <?php echo $_SESSION['rol'] === 'admin' ? 'Lista de Estudiantes' : 'Mis Notas'; ?>
+    </h2>
+
     
     <table>
         <tr>
@@ -117,7 +126,10 @@ foreach ($estudiantes as $id => $estudiante) {
             <th>Carrera</th>
             <th>Notas por Materia</th>
             <th>Promedio</th>
-            <th>Acciones</th>
+            <?php if ($_SESSION['rol'] === 'admin'): ?>
+                <th>Acciones</th>
+            <?php endif; ?>
+
         </tr>
 
         <?php $index = 0; ?>
@@ -149,11 +161,14 @@ foreach ($estudiantes as $id => $estudiante) {
                 ?>
                 </td>
                 <td><?php echo number_format($estudiante['promedio'], 2); ?></td>
-                <td>
-                    <a href="agregarNota.php?id=<?php echo $alumno_id; ?>" class="btn-nota">Agregar nota</a>
-                    <a href="modificar.php?id=<?php echo $alumno_id; ?>" class="btn-modificar">Modificar</a>
-                    <a href="confirmar_eliminacio.php?id=<?php echo $alumno_id; ?>" class="btn-eliminar" onclick="return confirm('¿Estás seguro que deseas eliminar?');">Eliminar</a>
-                </td>
+                <?php if ($_SESSION['rol'] === 'admin'): ?>
+                    <td>
+                        <a href="agregarNota.php?id=<?php echo $alumno_id; ?>" class="btn-nota">Agregar nota</a>
+                        <a href="modificar.php?id=<?php echo $alumno_id; ?>" class="btn-modificar">Modificar</a>
+                        <a href="confirmar_eliminacio.php?id=<?php echo $alumno_id; ?>" class="btn-eliminar" onclick="return confirm('¿Estás seguro que deseas eliminar?');">Eliminar</a>
+                    </td>
+                <?php endif; ?>
+
             </tr>
         <?php endforeach; ?>
     </table>
@@ -166,13 +181,18 @@ foreach ($estudiantes as $id => $estudiante) {
     </div>
 
     <div class="contenedor-botones">
-        <a href="nuevo_estudiante.php" class="btn-agregar">Agregar estudiante</a>
-        <a href="agregarMateria.php" class="btn-agregar">Agregar materia</a>
-        <a href="agregarCarrera.php" class="btn-agregar">Agregar carrera</a>
-        <a href="lista_carreras.php" class="btn-lista">Lista de carreras</a>
-        <a href="lista_materias.php" class="btn-lista">Lista de materias</a>
+        <?php if ($_SESSION['rol'] === 'admin'): ?>
+            <a href="nuevo_estudiante.php" class="btn-agregar">Agregar estudiante</a>
+            <a href="agregarMateria.php" class="btn-agregar">Agregar materia</a>
+            <a href="agregarCarrera.php" class="btn-agregar">Agregar carrera</a>
+            <a href="lista_carreras.php" class="btn-lista">Lista de carreras</a>
+            <a href="lista_materias.php" class="btn-lista">Lista de materias</a>
+        <?php endif; ?>
+
+        <!-- Siempre visible -->
         <a href="login_salida.php" class="btn-eliminar_grande">Cerrar sesión</a>
     </div>
+
 
 </body>
 </html>
